@@ -1,0 +1,7 @@
+{
+  "name": "Bet-App",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
