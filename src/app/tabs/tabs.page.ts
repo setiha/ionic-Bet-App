@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {TranslateService} from "../../services/translate.service";
 
 @Component({
   selector: 'app-tabs',
@@ -7,6 +8,10 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
-  constructor() {}
+  constructor(public translate: TranslateService) {
+    this.translate.getTranslates().then(tr => {
+      console.log(tr);
+    });
+  }
 
 }
