@@ -8,12 +8,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {TranslateService} from '../services/translate.service';
+import { TranslatePipe } from '../pipes/translate.pipe';
+
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, TranslateService],
+  providers: [{provide: RouteReuseStrategy, useClass: IonicRouteStrategy}, TranslateService],
   bootstrap: [AppComponent],
+  exports: [
+  ]
 })
 export class AppModule {}

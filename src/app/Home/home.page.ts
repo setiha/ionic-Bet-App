@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {TabsPage} from "../tabs/tabs.page";
+import {TranslateService} from "../../services/translate.service";
 
 @Component({
   selector: 'app-home',
@@ -6,7 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss']
 })
 export class HomePage {
+  content: string;
 
-  constructor() {}
+  constructor(public translate: TranslateService) {
+    this.translate.getTranslates().then(tr => {
+      this.content = tr.CONTENT;
+    });
+  }
+
 
 }
