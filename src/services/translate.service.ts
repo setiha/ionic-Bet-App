@@ -12,9 +12,16 @@ export class TranslateService {
 
   constructor(public http: HttpClient) {
   }
+  generateUrl() {
+    return `${this.langDir}${this.lang}.json`;
+  }
 
   getTranslates(): Promise<any> {
+
     return new Promise((resolve, rejects) => {
+      if(Object.keys(this.translate).length > 0){
+        return resolve(this.translate)
+      }
       this.http.get(this.generateUrl()).forEach(
         res => {
           this.translate = res;
@@ -24,7 +31,7 @@ export class TranslateService {
     });
   };
 
-  generateUrl() {
-    return `${this.langDir}${this.lang}.json`;
+  getText(key){
+
   }
 }

@@ -3,10 +3,8 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Tab2Page } from './tab2.page';
-
-import { Tab2PageRoutingModule } from './tab2-routing.module';
-import {AppModule} from "../app.module";
+import {ContactPage} from "./contact.page";
+import {ContactPageRoutingModule} from "./contact-routing.module";
 import {TranslatePipe} from "../../pipes/translate.pipe";
 
 @NgModule({
@@ -14,8 +12,12 @@ import {TranslatePipe} from "../../pipes/translate.pipe";
     IonicModule,
     CommonModule,
     FormsModule,
-    Tab2PageRoutingModule,
+    RouterModule.forChild([{ path: '', component: ContactPage }]),
+    ContactPageRoutingModule,
   ],
-  declarations: [Tab2Page, TranslatePipe]
+  declarations: [ContactPage,TranslatePipe],
+  exports: [
+    TranslatePipe
+  ],
 })
-export class Tab2PageModule {}
+export class ContactPageModule {}

@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {TranslateService} from '../services/translate.service';
-import { TranslatePipe } from '../pipes/translate.pipe';
+
 
 
 @NgModule({

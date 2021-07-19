@@ -13,9 +13,9 @@ export class TabsPage {
   constructor(public translate: TranslateService) {
     this.translate.getTranslates().then(tr => {
       console.log(tr);
-      this.addTab(tr.HOME, 'Home', 'home');
-      this.addTab(tr.BETTING, 'tab2', 'cash');
-      this.addTab(tr.HISTORY, 'tab3', 'time');
+      this.addTab(tr.HOME, 'home', 'home');
+      this.addTab(tr.BETTING, 'about', 'cash');
+      this.addTab(tr.HISTORY, 'contact', 'time');
       this.tabStart = true;
     });
   }

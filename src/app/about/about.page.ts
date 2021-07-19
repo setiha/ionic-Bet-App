@@ -3,12 +3,12 @@ import {TranslatePipe} from "../../pipes/translate.pipe";
 
 
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss'],
+  selector: 'app-about',
+  templateUrl: 'about.page.html',
+  styleUrls: ['about.page.scss'],
   providers:[TranslatePipe]
 })
-export class Tab2Page {
+export class AboutPage {
   translateP;
 
   constructor(private translatePipe: TranslatePipe) {
