@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {TranslatePipe} from "../../pipes/translate.pipe";
+import {ClubService} from "../../services/club.service";
 
 @Component({
   selector: 'app-contact',

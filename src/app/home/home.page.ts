@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {TranslateService} from "../../services/translate.service";
-import {ClubService} from "../../services/club.service";
 
 @Component({
   selector: 'app-home',

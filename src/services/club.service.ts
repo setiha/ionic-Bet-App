@@ -5,8 +5,8 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class ClubService {
-  clubsUrl: string = '../footballDb/clubs';
-  clubs: any;
+  clubsUrl: string = '../assets/clubs';
+  clubs;
 
   constructor(public http: HttpClient) {
 
@@ -19,10 +19,11 @@ export class ClubService {
           this.clubs = res;
           resolve(this.clubs);
         }
-      ).then(value => console.log(value));
+      ).then(value => value);
     })
   }
-  generateURl(){
+
+  generateURl() {
     return `${this.clubsUrl}.json`;
   }
 }
