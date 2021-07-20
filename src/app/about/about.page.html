@@ -8,9 +8,9 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-item *ngFor="let club of clubs">
+    <ion-item *ngFor="let round of rounds">
       <ion-label>
-        {{club.name}}
+        {{round.name}} | {{round.matches[0].date}}
       </ion-label>
     </ion-item>
   </ion-list>

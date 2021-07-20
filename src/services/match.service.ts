@@ -1,12 +1,12 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ClubService {
-  clubsUrl: string = '../assets/matchDatabase/clubs';
-  clubs;
+export class MatchService {
+  endPoint: string = '../assets/matchDatabase/matches';
+  items;
 
   constructor(public http: HttpClient) {
 
@@ -16,14 +16,15 @@ export class ClubService {
     return new Promise((resolve, reject) => {
       this.http.get(this.generateURl()).forEach(
         res => {
-          this.clubs = res;
-          resolve(this.clubs);
+          this.items = res;
+          resolve(this.items);
         }
       ).then(value => value);
     })
   }
 
   generateURl() {
-    return `${this.clubsUrl}.json`;
+    return `${this.endPoint}.json`;
   }
 }
+

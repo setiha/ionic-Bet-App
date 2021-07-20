@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {TranslateService} from '../services/translate.service';
 import {ClubService} from "../services/club.service";
+import {MatchService} from "../services/match.service";
 
 
 
@@ -16,7 +17,7 @@ import {ClubService} from "../services/club.service";
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
-  providers: [{provide: RouteReuseStrategy, useClass: IonicRouteStrategy}, TranslateService, ClubService],
+  providers: [{provide: RouteReuseStrategy, useClass: IonicRouteStrategy}, TranslateService, ClubService, MatchService],
   bootstrap: [AppComponent],
   exports: [
   ]

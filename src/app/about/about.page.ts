@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {TranslatePipe} from "../../pipes/translate.pipe";
 import {ClubService} from "../../services/club.service";
+import {MatchService} from "../../services/match.service";
 
 
 @Component({
@@ -11,12 +12,14 @@ import {ClubService} from "../../services/club.service";
 })
 export class AboutPage {
   translateP;
-  clubs: Array<object> = [];
+  rounds: Array<object> = [];
 
   constructor(private translatePipe: TranslatePipe,
-              private clubService: ClubService) {
+              private clubService: ClubService,
+              private mService: MatchService) {
     this.translateP = translatePipe;
-    this.clubService.getAll().then(clubs => this.clubs = clubs.clubs)
+    this.mService.getAll().then(clubs => this.rounds = clubs.rounds as Array<object>);
+
   }
 
 }
