@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {TabsPage} from "../tabs/tabs.page";
 import {TranslateService} from "../../services/translate.service";
+import {ClubService} from "../../services/club.service";
 
 @Component({
   selector: 'app-home',
@@ -15,6 +15,5 @@ export class HomePage {
       this.content = tr.CONTENT;
     });
   }
-
 
 }

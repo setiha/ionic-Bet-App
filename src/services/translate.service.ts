@@ -7,7 +7,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class TranslateService {
   translate = {};
-  lang = 'hu';
+  lang = 'en';
   langDir = '../assets/lang/';
 
   constructor(public http: HttpClient) {
