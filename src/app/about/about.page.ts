@@ -18,8 +18,9 @@ export class AboutPage {
               private clubService: ClubService,
               private mService: MatchService) {
     this.translateP = translatePipe;
-    this.mService.getAll().then(clubs => this.rounds = clubs.rounds as Array<object>);
-
+    this.mService.getAll().then(clubs => {
+      this.rounds = clubs.rounds as Array<object>;
+    });
   }
 
 }

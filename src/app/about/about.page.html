@@ -8,10 +8,17 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-item *ngFor="let round of rounds">
-      <ion-label>
-        {{round.name}} | {{round.matches[0].date}}
-      </ion-label>
-    </ion-item>
+    <div *ngFor="let round of rounds">
+      <ion-list-header lines="inset">
+        <ion-label>{{round.name}} | {{round.matches[0].date}}</ion-label>
+      </ion-list-header>
+      <ion-item lines="none" *ngFor="let match of round.matches">
+        <ion-button fill="clear" color="dark">
+          {{match.team1}} - {{match.team2}}
+        </ion-button>
+      </ion-item>
+    </div>
   </ion-list>
+
+
 </ion-content>

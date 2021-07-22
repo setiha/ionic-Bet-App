@@ -12,7 +12,6 @@ export class TabsPage {
 
   constructor(public translate: TranslateService) {
     this.translate.getTranslates().then(tr => {
-      console.log(tr);
       this.addTab(tr.HOME, 'home', 'home');
       this.addTab(tr.BETTING, 'about', 'cash');
       this.addTab(tr.HISTORY, 'contact', 'time');

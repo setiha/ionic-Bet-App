@@ -16,8 +16,7 @@ export class MatchService {
     return new Promise((resolve, reject) => {
       this.http.get(this.generateURl()).forEach(
         res => {
-          this.items = res;
-          resolve(this.items);
+          resolve(res);
         }
       ).then(value => value);
     })
