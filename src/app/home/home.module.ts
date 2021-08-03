@@ -14,7 +14,7 @@ import {TranslatePipe} from "../../pipes/translate.pipe";
     FormsModule,
     HomePageRoutingModule,
   ],
-  declarations: [HomePage, TranslatePipe],
+  declarations: [HomePage,TranslatePipe],
   exports: [
     TranslatePipe
   ],

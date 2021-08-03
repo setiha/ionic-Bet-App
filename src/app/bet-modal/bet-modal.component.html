@@ -1,0 +1,16 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title size="small" color="primary">{{'MATCHES' | translate}} {{newDate}}</ion-title>
+    <ion-button slot="end" primary
+                (click)="dismiss()">X
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+  <ion-list>
+    <ion-item button *ngFor="let match of matches">
+      {{match.team1}}-{{match.team2}}
+    </ion-item>
+  </ion-list>
+</ion-content>
+

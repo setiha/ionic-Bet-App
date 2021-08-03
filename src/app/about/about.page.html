@@ -10,13 +10,8 @@
   <ion-list>
     <div *ngFor="let round of rounds">
       <ion-list-header lines="inset">
-        <ion-label>{{round.name}} | {{round.matches[0].date}}</ion-label>
+        <ion-button  (click)="presentModal(round.matches)" fill="clear" color="dark">{{round.name}} | {{round.matches[0].date}}</ion-button>
       </ion-list-header>
-      <ion-item lines="none" *ngFor="let match of round.matches">
-        <ion-button fill="clear" color="dark">
-          {{match.team1}} - {{match.team2}}
-        </ion-button>
-      </ion-item>
     </div>
   </ion-list>
 

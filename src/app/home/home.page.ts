@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {TranslateService} from "../../services/translate.service";
+import {TranslateService} from '../../services/translate.service';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +9,8 @@ import {TranslateService} from "../../services/translate.service";
 export class HomePage {
   content: string;
 
-  constructor(public translate: TranslateService) {
-    this.translate.getTranslates().then(tr => {
+  constructor(public translatePipe: TranslateService) {
+    this.translatePipe.getTranslates().then(tr => {
       this.content = tr.CONTENT;
     });
   }
