@@ -6,5 +6,8 @@
   "HOME_PAGE_TITLE": "Fogadj a legjobbra",
   "HOME_PAGE_LEAD": "Az alkalmazasban fogadhatsz a futball eredmenyekre.\n Navigalj a fogadas oldalra",
   "MATCHES": "Meccsek",
-  "CLOSE": "Bezar"
+  "NEW_BETTING": "Fogadas",
+  "WINNER_TEAM": "Eselyes",
+  "AMOUNT": "Osszeg",
+  "SEND_BETTING": "Tet bekuldese"
 }

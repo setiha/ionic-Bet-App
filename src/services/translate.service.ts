@@ -7,7 +7,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class TranslateService {
   translate = {};
-  lang = 'en';
+  lang = 'hu';
   langDir = '../assets/lang/';
 
   constructor(public http: HttpClient) {
@@ -20,7 +20,7 @@ export class TranslateService {
 
     return new Promise((resolve, rejects) => {
       if(Object.keys(this.translate).length > 0){
-        return resolve(this.translate)
+        return resolve(this.translate);
       }
       this.http.get(this.generateUrl()).forEach(
         res => {

@@ -14,14 +14,16 @@ import {BetModalComponent} from './bet-modal/bet-modal.component';
 import {AboutPageModule} from './about/about.module';
 import {HomePageModule} from "./home/home.module";
 import {TranslatePipe} from "../pipes/translate.pipe";
+import {BetModalFormComponent} from "./bet-modal-form/bet-modal-form.component";
+import {FormsModule} from "@angular/forms";
 
 
 
 
 @NgModule({
-  declarations: [AppComponent,BetModalComponent],
+  declarations: [AppComponent,BetModalComponent,BetModalFormComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, AboutPageModule,HomePageModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, AboutPageModule, HomePageModule, FormsModule],
   providers: [{provide: RouteReuseStrategy, useClass: IonicRouteStrategy}, TranslateService, ClubService, MatchService,TranslatePipe],
   bootstrap: [AppComponent],
   exports: [

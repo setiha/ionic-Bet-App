@@ -13,7 +13,7 @@ export class TranslatePipe implements PipeTransform {
         this.currentTranslates = tr;
 
       }
-    )
+    );
   }
 
   transform(value: string, ...args: unknown[]): unknown {

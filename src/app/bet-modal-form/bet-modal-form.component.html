@@ -1,0 +1,23 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title size="small" color="primary">{{'New_Betting' | translate}}</ion-title>
+    <ion-button  (click)="dismiss()" slot="end" primary> Cancel
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+  <ion-list>
+    <ion-item>
+      <ion-label>{{"WINNER_TEAM" | translate}}</ion-label>
+      <ion-select [(ngModel)]="winner" interface="action-sheet">
+        <ion-select-option value="team1">Manchester City</ion-select-option>
+        <ion-select-option value="team2">Manchester</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">{{"AMOUNT" | translate}}</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+  </ion-list>
+    <ion-button expand="block">{{"SEND_BETTING" | translate}}</ion-button>
+</ion-content>

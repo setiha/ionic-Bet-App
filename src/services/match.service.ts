@@ -5,7 +5,7 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class MatchService {
-  endPoint: string = '../assets/matchDatabase/matches';
+  endPoint = '../assets/matchDatabase/matches';
   items;
 
   constructor(public http: HttpClient) {
