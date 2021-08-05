@@ -9,7 +9,7 @@
 <ion-content fullscreen>
   <ion-list>
     <ion-item button *ngFor="let match of matches" (click)="startBet(match)">
-      {{match.team1}}-{{match.team2}}
+      {{match.team1.name}}-{{match.team2.name}}
     </ion-item>
   </ion-list>
 </ion-content>

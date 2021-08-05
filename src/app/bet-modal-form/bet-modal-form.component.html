@@ -10,14 +10,14 @@
     <ion-item>
       <ion-label>{{"WINNER_TEAM" | translate}}</ion-label>
       <ion-select [(ngModel)]="winner" interface="action-sheet">
-        <ion-select-option value="team1">Manchester City</ion-select-option>
-        <ion-select-option value="team2">Manchester</ion-select-option>
+        <ion-select-option [value]="match.team1.code">{{match.team1.name}}</ion-select-option>
+        <ion-select-option [value]="match.team2.code">{{match.team2.name}}</ion-select-option>
       </ion-select>
     </ion-item>
     <ion-item>
       <ion-label position="floating">{{"AMOUNT" | translate}}</ion-label>
-      <ion-input></ion-input>
+      <ion-input [(ngModel)]="amount"></ion-input>
     </ion-item>
   </ion-list>
-    <ion-button expand="block">{{"SEND_BETTING" | translate}}</ion-button>
+    <ion-button expand="block" (click)="saveBetting()">{{"SEND_BETTING" | translate}}</ion-button>
 </ion-content>
