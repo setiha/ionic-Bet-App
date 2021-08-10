@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  selectOption;
   constructor() {}
+  setOptionStyle() {
+    this.selectOption = document.querySelector(' ion-select-option#ion-selopt-0');
+    this.selectOption.style.backgroundColor = 'red';
+  }
 }

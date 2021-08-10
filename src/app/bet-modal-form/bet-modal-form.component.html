@@ -5,13 +5,13 @@
     </ion-button>
   </ion-toolbar>
 </ion-header>
-<ion-content fullscreen>
+<ion-content id="csoda"fullscreen>
   <ion-list>
     <ion-item>
       <ion-label>{{"WINNER_TEAM" | translate}}</ion-label>
-      <ion-select [(ngModel)]="winner" interface="action-sheet">
-        <ion-select-option [value]="match.team1.code">{{match.team1.name}}</ion-select-option>
-        <ion-select-option [value]="match.team2.code">{{match.team2.name}}</ion-select-option>
+      <ion-select [(ngModel)]="winner"  class="custom-options" interface="action-sheet">
+        <ion-select-option id="newOption1" [value]="match.team1.code">{{match.team1.name}}</ion-select-option>
+        <ion-select-option  id="newOption2" [value]="match.team2.code">{{match.team2.name}}</ion-select-option>
       </ion-select>
     </ion-item>
     <ion-item>

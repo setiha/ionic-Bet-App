@@ -1,6 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TranslatePipe} from "../../pipes/translate.pipe";
 import {ClubService} from "../../services/club.service";
+import {StorageService} from "../../services/storage.service";
+import {Bet} from "../../models/bet";
 
 @Component({
   selector: 'app-contact',
@@ -8,11 +10,17 @@ import {ClubService} from "../../services/club.service";
   styleUrls: ['contact.page.scss'],
   providers: [TranslatePipe],
 })
-export class ContactPage {
-  translateP;
+export class ContactPage implements OnInit {
+  bets: Array<Bet> = [];
 
-  constructor(private translatePipe: TranslatePipe) {
-    this.translateP = translatePipe;
+  constructor(private translatePipe: TranslatePipe,
+              public storageService: StorageService) {
+    this.storageService.getObject('bets').then(
+      value => console.log(value)
+    );
   }
 
+  ngOnInit() {
+
+  }
 }

@@ -1,22 +1,31 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ModalController} from "@ionic/angular";
+import {Component, DoCheck, Input, OnInit} from '@angular/core';
+import {ActionSheetController, ModalController} from "@ionic/angular";
 import {StorageService} from "../../services/storage.service";
+import {Bet} from "../../models/bet";
+import {AppComponent} from "../app.component";
+
 
 @Component({
   selector: 'app-bet-modal-form',
   templateUrl: './bet-modal-form.component.html',
   styleUrls: ['./bet-modal-form.component.scss'],
 })
-export class BetModalFormComponent implements OnInit {
+export class BetModalFormComponent implements OnInit, DoCheck {
   @Input() match;
   winner: string;
   amount: number;
+  selects;
 
   constructor(public modalController: ModalController,
-              public storageService: StorageService) {
+              public storageService: StorageService,
+              public actionSheetController: ActionSheetController) {
   }
 
   ngOnInit() {
+  }
+
+  ngDoCheck() {
+    this.actionAppears();
   }
 
   dismiss() {
@@ -24,7 +33,27 @@ export class BetModalFormComponent implements OnInit {
   }
 
   saveBetting() {
-    console.log(this.winner);
-    console.log(this.amount);
+    const bet = new Bet(this.match, this.winner, this.amount);
+    this.storageService.getObject('bets').then(
+      bets => {
+        if (!bets) {
+          bets = [];
+        }
+        bets.push(bet);
+        this.storageService.setObject('bets', bets).then(
+          value => {
+            this.dismiss();
+          }
+        );
+      }
+    );
   }
+
+  actionAppears() {
+    this.selects = document.querySelectorAll('.action-sheet-button.sc-ion-action-sheet-md');
+    for (const element of this.selects)
+    {
+      element.style.color = 'blue';
+    }
+  };
 }
