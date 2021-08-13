@@ -9,5 +9,7 @@
   "NEW_BETTING": "Fogadas",
   "WINNER_TEAM": "Eselyes",
   "AMOUNT": "Osszeg",
-  "SEND_BETTING": "Tet bekuldese"
+  "SEND_BETTING": "Tet bekuldese",
+  "RESET": "Visszaallitas",
+  "UPDATE": "Frissites"
 }

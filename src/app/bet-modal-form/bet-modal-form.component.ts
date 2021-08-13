@@ -41,19 +41,34 @@ export class BetModalFormComponent implements OnInit, DoCheck {
         }
         bets.push(bet);
         this.storageService.setObject('bets', bets).then(
-          value => {
-            this.dismiss();
-          }
+          value => value
         );
+        this.manageAmount(this.amount).then(() => {
+          this.dismiss();
+        });
       }
     );
   }
 
   actionAppears() {
     this.selects = document.querySelectorAll('.action-sheet-button.sc-ion-action-sheet-md');
-    for (const element of this.selects)
-    {
+    for (const element of this.selects) {
       element.style.color = 'blue';
     }
   };
+
+  manageAmount(amount): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.storageService.getValue('amount').then(
+        currentAmount => {
+          currentAmount -= amount;
+          this.storageService.setValue('amount', currentAmount).then(
+            () => {
+              resolve(true);
+            });
+        }
+      );
+    });
+    debugger;
+  }
 }

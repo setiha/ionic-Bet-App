@@ -9,5 +9,7 @@
   "NEW_BETTING": "New betting",
   "WINNER_TEAM": "Winner",
   "AMOUNT": "Amount",
-  "SEND_BETTING": "Send betting"
+  "SEND_BETTING": "Send betting",
+  "RESET": "Reset",
+  "UPDATE": "Update"
 }
