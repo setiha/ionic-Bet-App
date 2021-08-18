@@ -20,7 +20,6 @@ export class ContactPage implements OnInit, DoCheck {
   }
 
   ngOnInit() {
-    window.location.reload();
   }
 
   ngDoCheck() {
@@ -31,6 +30,7 @@ export class ContactPage implements OnInit, DoCheck {
           this.bets = bets;
         }
       );
+      window.location.reload();
       this.storageCheck = true;
     }
   }
