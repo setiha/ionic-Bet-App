@@ -17,7 +17,6 @@ export class BetService {
     this.storageService.getValue('bets').then(
       value => {
         this.currentBets = JSON.parse(value);
-        console.log(this.currentBets);
         this.subject.next(this.currentBets);
       });
   }
