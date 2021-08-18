@@ -4,12 +4,13 @@ import {StorageService} from "../../services/storage.service";
 import {AlertController} from "@ionic/angular";
 import {ReplaySubject, Subject} from "rxjs";
 import {DeviceAccounts} from "@ionic-native/device-accounts/ngx";
+import {Device} from '@ionic-native/device/ngx';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  providers: [DeviceAccounts]
+  providers: [DeviceAccounts, Device]
 })
 export class HomePage implements DoCheck {
   content: string;
@@ -19,7 +20,8 @@ export class HomePage implements DoCheck {
 
   constructor(public storageService: StorageService,
               public alertController: AlertController,
-              private deviceAccounts: DeviceAccounts) {
+              private deviceAccounts: DeviceAccounts,
+              private device: Device) {
   }
 
   ngDoCheck() {
@@ -64,11 +66,11 @@ export class HomePage implements DoCheck {
           this.amount = 25000;
         }
         this.amount = amount;
-        console.log('homePage', this.amount);
       });
-    this.deviceAccounts.get()
-      .then(accounts => this.debug = accounts)
-      .catch(error => this.debug = error);
+    //this.deviceAccounts.get()
+    //.then(accounts => this.debug = accounts)
+    //.catch(error => this.debug = error);
+    this.debug = this.device.uuid;
   }
 
   refreshPage() {

@@ -25,6 +25,7 @@
     "@capacitor/keyboard": "1.0.2",
     "@capacitor/status-bar": "1.0.2",
     "@ionic-native/core": "^5.35.0",
+    "@ionic-native/device": "^5.35.0",
     "@ionic-native/device-accounts": "^5.35.0",
     "@ionic-native/vibration": "^5.35.0",
     "@ionic/angular": "^5.5.2",
@@ -58,6 +59,7 @@
     "@typescript-eslint/eslint-plugin": "4.16.1",
     "@typescript-eslint/parser": "4.16.1",
     "cordova-device-accounts-v2": "^2.0.8",
+    "cordova-plugin-device": "^2.0.2",
     "eslint": "^7.6.0",
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-jsdoc": "30.7.6",
@@ -78,7 +80,8 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-vibration": {},
-      "cordova-device-accounts-v2": {}
+      "cordova-device-accounts-v2": {},
+      "cordova-plugin-device": {}
     }
   }
 }
