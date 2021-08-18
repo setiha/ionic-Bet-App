@@ -60,7 +60,11 @@ export class HomePage implements DoCheck {
           this.amount = 25000;
         }
         this.amount = amount;
-        console.log('homePage',this.amount);
+        console.log('homePage', this.amount);
       });
+  }
+
+  refreshPage() {
+    window.location.reload();
   }
 }

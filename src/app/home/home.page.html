@@ -14,6 +14,6 @@
     <ion-label>{{"AMOUNT" | translate}}</ion-label>
     <ion-input [(ngModel)]="amount" type="number"></ion-input>
   </ion-item>
-  <ion-button  expand="full" color="primary">{{"UPDATE" | translate }}</ion-button>
+  <ion-button  expand="full" color="primary" (click)="refreshPage()">{{"UPDATE" | translate }}</ion-button>
  <ion-button  expand="full" color="danger" (click)="resetStorage()">{{"RESET" | translate }}</ion-button>
 </ion-content>
