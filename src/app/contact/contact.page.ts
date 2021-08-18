@@ -20,7 +20,7 @@ export class ContactPage implements OnInit, DoCheck {
   }
 
   ngOnInit() {
-
+    window.location.reload();
   }
 
   ngDoCheck() {
