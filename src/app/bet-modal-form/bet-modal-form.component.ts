@@ -4,6 +4,8 @@ import {StorageService} from "../../services/storage.service";
 import {Bet} from "../../models/bet";
 import {BetService} from "../../services/bet.service";
 import {Vibration} from "@ionic-native/vibration/ngx";
+import {DeviceAccounts} from "@ionic-native/device-accounts/ngx";
+
 
 
 @Component({

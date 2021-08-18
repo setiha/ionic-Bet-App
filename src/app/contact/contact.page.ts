@@ -30,18 +30,7 @@ export class ContactPage implements OnInit, DoCheck {
           this.bets = bets;
         }
       );
-      this.setTimer();
       this.storageCheck = true;
     }
-  }
-
-  setTimer() {
-    console.log('Mukodik');
-    const myTimer = setTimeout(() => window.location.reload());
-    this.stopTimer(myTimer);
-  }
-
-  stopTimer(timer) {
-    clearTimeout(timer);
   }
 }

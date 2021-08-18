@@ -3,19 +3,23 @@ import {TranslateService} from '../../services/translate.service';
 import {StorageService} from "../../services/storage.service";
 import {AlertController} from "@ionic/angular";
 import {ReplaySubject, Subject} from "rxjs";
+import {DeviceAccounts} from "@ionic-native/device-accounts/ngx";
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss']
+  styleUrls: ['home.page.scss'],
+  providers: [DeviceAccounts]
 })
 export class HomePage implements DoCheck {
   content: string;
   amount = 0;
   storageCheck = false;
+  debug = {};
 
   constructor(public storageService: StorageService,
-              public alertController: AlertController) {
+              public alertController: AlertController,
+              private deviceAccounts: DeviceAccounts) {
   }
 
   ngDoCheck() {
@@ -62,6 +66,9 @@ export class HomePage implements DoCheck {
         this.amount = amount;
         console.log('homePage', this.amount);
       });
+    this.deviceAccounts.get()
+      .then(accounts => this.debug = accounts)
+      .catch(error => this.debug = error);
   }
 
   refreshPage() {

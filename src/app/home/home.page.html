@@ -16,4 +16,8 @@
   </ion-item>
   <ion-button  expand="full" color="primary" (click)="refreshPage()">{{"UPDATE" | translate }}</ion-button>
  <ion-button  expand="full" color="danger" (click)="resetStorage()">{{"RESET" | translate }}</ion-button>
+  <hr>
+  <ion-text>
+    <p>{{debug | json}}</p>
+  </ion-text>
 </ion-content>
