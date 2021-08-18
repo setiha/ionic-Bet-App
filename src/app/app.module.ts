@@ -18,6 +18,8 @@ import {BetModalFormComponent} from "./bet-modal-form/bet-modal-form.component";
 import {FormsModule} from "@angular/forms";
 import {IonicStorageModule} from '@ionic/storage-angular';
 import {StorageService} from "../services/storage.service";
+import {BetService} from "../services/bet.service";
+
 
 
 
@@ -33,7 +35,7 @@ import {StorageService} from "../services/storage.service";
     provide: RouteReuseStrategy,
     useClass: IonicRouteStrategy
   }, TranslateService, ClubService,
-    MatchService, TranslatePipe, StorageService],
+    MatchService, TranslatePipe, StorageService, BetService],
   bootstrap: [AppComponent],
   exports: []
 })

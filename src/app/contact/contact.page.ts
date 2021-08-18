@@ -3,6 +3,7 @@ import {TranslatePipe} from "../../pipes/translate.pipe";
 import {ClubService} from "../../services/club.service";
 import {StorageService} from "../../services/storage.service";
 import {Bet} from "../../models/bet";
+import {BetService} from "../../services/bet.service";
 
 @Component({
   selector: 'app-contact',
@@ -14,9 +15,8 @@ export class ContactPage implements OnInit, DoCheck {
   bets: Array<Bet> = [];
   storageCheck = false;
 
-  constructor(private translatePipe: TranslatePipe,
+  constructor(public betService: BetService,
               public storageService: StorageService) {
-
   }
 
   ngOnInit() {
@@ -25,13 +25,13 @@ export class ContactPage implements OnInit, DoCheck {
 
   ngDoCheck() {
     if (this.storageService.newStorage && !this.storageCheck) {
-      this.storageService.getValue('bets').then(
-        value => {
-          this.bets = JSON.parse(value);
-          console.log(this.bets);
-        });
+      this.betService.getBets();
+      this.betService.subject.subscribe(
+        bets => {
+          this.bets = bets;
+        }
+      );
       this.storageCheck = true;
-
     }
   }
 }

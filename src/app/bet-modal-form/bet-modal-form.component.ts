@@ -2,13 +2,15 @@ import {Component, DoCheck, Input, OnInit} from '@angular/core';
 import {ActionSheetController, ModalController} from "@ionic/angular";
 import {StorageService} from "../../services/storage.service";
 import {Bet} from "../../models/bet";
-import {AppComponent} from "../app.component";
+import {BetService} from "../../services/bet.service";
+import {Vibration} from "@ionic-native/vibration/ngx";
 
 
 @Component({
   selector: 'app-bet-modal-form',
   templateUrl: './bet-modal-form.component.html',
   styleUrls: ['./bet-modal-form.component.scss'],
+  providers:[Vibration]
 })
 export class BetModalFormComponent implements OnInit, DoCheck {
   @Input() match;
@@ -18,7 +20,9 @@ export class BetModalFormComponent implements OnInit, DoCheck {
 
   constructor(public modalController: ModalController,
               public storageService: StorageService,
-              public actionSheetController: ActionSheetController) {
+              public actionSheetController: ActionSheetController,
+              public betService: BetService,
+              public vibration: Vibration) {
   }
 
   ngOnInit() {
@@ -34,20 +38,9 @@ export class BetModalFormComponent implements OnInit, DoCheck {
 
   saveBetting() {
     const bet = new Bet(this.match, this.winner, this.amount);
-    this.storageService.getObject('bets').then(
-      bets => {
-        if (!bets) {
-          bets = [];
-        }
-        bets.push(bet);
-        this.storageService.setObject('bets', bets).then(
-          value => value
-        );
-        this.manageAmount(this.amount).then(() => {
-          this.dismiss();
-        });
-      }
-    );
+    this.betService.addBet(bet, this.amount);
+    this.vibration.vibrate(700);
+    this.dismiss();
   }
 
   actionAppears() {
@@ -57,18 +50,4 @@ export class BetModalFormComponent implements OnInit, DoCheck {
     }
   };
 
-  manageAmount(amount): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.storageService.getValue('amount').then(
-        currentAmount => {
-          currentAmount -= amount;
-          this.storageService.setValue('amount', currentAmount).then(
-            () => {
-              resolve(true);
-            });
-        }
-      );
-    });
-    debugger;
-  }
 }
