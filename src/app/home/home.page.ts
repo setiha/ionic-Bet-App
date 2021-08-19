@@ -16,7 +16,7 @@ export class HomePage implements DoCheck {
   content: string;
   amount = 0;
   storageCheck = false;
-  debug = {};
+  debug;
 
   constructor(public storageService: StorageService,
               public alertController: AlertController,
@@ -28,6 +28,8 @@ export class HomePage implements DoCheck {
     if (this.storageService.newStorage && !this.storageCheck) {
       this.initPage();
       this.storageCheck = true;
+      this.debug = this.device.uuid;
+      console.log('Device UUID is: ' + this.device.uuid);
     }
   }
 
