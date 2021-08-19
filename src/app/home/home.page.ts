@@ -3,6 +3,7 @@ import {TranslateService} from '../../services/translate.service';
 import {StorageService} from "../../services/storage.service";
 import {AlertController} from "@ionic/angular";
 import {Device} from "@ionic-native/device/ngx";
+import {Contact} from "@ionic-native/contacts/ngx";
 
 
 @Component({
@@ -16,10 +17,12 @@ export class HomePage implements DoCheck {
   amount = 0;
   storageCheck = false;
   debug;
+  phrase: string;
 
   constructor(public storageService: StorageService,
               public alertController: AlertController,
-              public device: Device) {
+              public device: Device,
+              public contact: Contact) {
   }
 
   ngDoCheck() {
@@ -70,5 +73,8 @@ export class HomePage implements DoCheck {
 
   refreshPage() {
     window.location.reload();
+  }
+  startFind(){
+    this.debug = this.contact.name;
   }
 }

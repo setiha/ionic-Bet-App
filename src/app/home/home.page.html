@@ -17,7 +17,10 @@
   <ion-button  expand="full" color="primary" (click)="refreshPage()">{{"UPDATE" | translate }}</ion-button>
  <ion-button  expand="full" color="danger" (click)="resetStorage()">{{"RESET" | translate }}</ion-button>
   <hr>
-  <ion-text>
-    <p>{{debug | json}}</p>
-  </ion-text>
+  <ion-item>
+    <ion-label>Nev</ion-label>
+    <ion-input [(ngModel)]="phrase" type="text"></ion-input>
+    <ion-button color="danger" (click)="startFind()">Kereses</ion-button>
+    <div>{{debug | json}}</div>
+  </ion-item>
 </ion-content>

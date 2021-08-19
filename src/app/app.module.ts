@@ -19,7 +19,7 @@ import {FormsModule} from "@angular/forms";
 import {IonicStorageModule} from '@ionic/storage-angular';
 import {StorageService} from "../services/storage.service";
 import {BetService} from "../services/bet.service";
-
+import { Contacts, Contact, ContactField, ContactName } from '@ionic-native/contacts/ngx';
 
 
 
@@ -35,7 +35,7 @@ import {BetService} from "../services/bet.service";
     provide: RouteReuseStrategy,
     useClass: IonicRouteStrategy
   }, TranslateService, ClubService,
-    MatchService, TranslatePipe, StorageService, BetService],
+    MatchService, TranslatePipe, StorageService, BetService,Contact,Contacts],
   bootstrap: [AppComponent],
   exports: []
 })

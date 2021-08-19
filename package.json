@@ -24,6 +24,7 @@
     "@capacitor/haptics": "1.0.2",
     "@capacitor/keyboard": "1.0.2",
     "@capacitor/status-bar": "1.0.2",
+    "@ionic-native/contacts": "^5.35.0",
     "@ionic-native/core": "^5.35.0",
     "@ionic-native/device": "^5.35.0",
     "@ionic-native/vibration": "^5.35.0",
@@ -60,6 +61,7 @@
     "@typescript-eslint/eslint-plugin": "4.16.1",
     "@typescript-eslint/parser": "4.16.1",
     "cordova-browser": "^6.0.0",
+    "cordova-plugin-contacts": "^3.0.1",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-ionic-webview": "^4.2.1",
     "cordova-plugin-splashscreen": "^5.0.2",
@@ -90,7 +92,8 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-ionic-keyboard": {},
-      "cordova-plugin-device": {}
+      "cordova-plugin-device": {},
+      "cordova-plugin-contacts": {}
     },
     "platforms": [
       "browser"
