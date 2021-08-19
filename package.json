@@ -26,13 +26,13 @@
     "@capacitor/status-bar": "1.0.2",
     "@ionic-native/core": "^5.35.0",
     "@ionic-native/device": "^5.35.0",
-    "@ionic-native/device-accounts": "^5.35.0",
     "@ionic-native/vibration": "^5.35.0",
     "@ionic/angular": "^5.5.2",
     "@ionic/storage-angular": "^3.0.6",
     "add": "^2.0.6",
     "cordova": "^10.0.0",
     "cordova-js": "^6.1.0",
+    "cordova-plugin-device": "^2.0.3",
     "cordova-plugin-ionic": "5.4.7",
     "ionic": "^5.4.16",
     "plugin": "^0.3.3",
@@ -60,8 +60,6 @@
     "@typescript-eslint/eslint-plugin": "4.16.1",
     "@typescript-eslint/parser": "4.16.1",
     "cordova-browser": "^6.0.0",
-    "cordova-device-accounts-v2": "^2.0.8",
-    "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-ionic-webview": "^4.2.1",
     "cordova-plugin-splashscreen": "^5.0.2",
@@ -87,13 +85,12 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-vibration": {},
-      "cordova-device-accounts-v2": {},
-      "cordova-plugin-device": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-device": {}
     },
     "platforms": [
       "browser"

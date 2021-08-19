@@ -4,15 +4,13 @@ import {StorageService} from "../../services/storage.service";
 import {Bet} from "../../models/bet";
 import {BetService} from "../../services/bet.service";
 import {Vibration} from "@ionic-native/vibration/ngx";
-import {DeviceAccounts} from "@ionic-native/device-accounts/ngx";
-
 
 
 @Component({
   selector: 'app-bet-modal-form',
   templateUrl: './bet-modal-form.component.html',
   styleUrls: ['./bet-modal-form.component.scss'],
-  providers:[Vibration]
+  providers: [Vibration,]
 })
 export class BetModalFormComponent implements OnInit, DoCheck {
   @Input() match;
@@ -43,6 +41,7 @@ export class BetModalFormComponent implements OnInit, DoCheck {
     this.betService.addBet(bet, this.amount);
     this.vibration.vibrate(700);
     this.dismiss();
+
   }
 
   actionAppears() {

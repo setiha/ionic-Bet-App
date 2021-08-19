@@ -2,15 +2,14 @@ import {Component, DoCheck} from '@angular/core';
 import {TranslateService} from '../../services/translate.service';
 import {StorageService} from "../../services/storage.service";
 import {AlertController} from "@ionic/angular";
-import {ReplaySubject, Subject} from "rxjs";
-import {DeviceAccounts} from "@ionic-native/device-accounts/ngx";
-import {Device} from '@ionic-native/device/ngx';
+import {Device} from "@ionic-native/device/ngx";
+
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  providers: [DeviceAccounts, Device]
+  providers: [Device]
 })
 export class HomePage implements DoCheck {
   content: string;
@@ -20,16 +19,13 @@ export class HomePage implements DoCheck {
 
   constructor(public storageService: StorageService,
               public alertController: AlertController,
-              private deviceAccounts: DeviceAccounts,
-              private device: Device) {
+              public device: Device) {
   }
 
   ngDoCheck() {
     if (this.storageService.newStorage && !this.storageCheck) {
       this.initPage();
       this.storageCheck = true;
-      this.debug = this.device.uuid;
-      console.log('Device UUID is: ' + this.device.uuid);
     }
   }
 
@@ -68,11 +64,8 @@ export class HomePage implements DoCheck {
           this.amount = 25000;
         }
         this.amount = amount;
+        this.debug = this.device.uuid;
       });
-    //this.deviceAccounts.get()
-    //.then(accounts => this.debug = accounts)
-    //.catch(error => this.debug = error);
-    this.debug = this.device.uuid;
   }
 
   refreshPage() {
