@@ -2,27 +2,21 @@ import {Component, DoCheck} from '@angular/core';
 import {TranslateService} from '../../services/translate.service';
 import {StorageService} from "../../services/storage.service";
 import {AlertController} from "@ionic/angular";
-import {Device} from "@ionic-native/device/ngx";
-import {Contact} from "@ionic-native/contacts/ngx";
 
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  providers: [Device]
 })
 export class HomePage implements DoCheck {
   content: string;
   amount = 0;
   storageCheck = false;
   debug;
-  phrase: string;
 
   constructor(public storageService: StorageService,
-              public alertController: AlertController,
-              public device: Device,
-              public contact: Contact) {
+              public alertController: AlertController) {
   }
 
   ngDoCheck() {
@@ -67,14 +61,10 @@ export class HomePage implements DoCheck {
           this.amount = 25000;
         }
         this.amount = amount;
-        this.debug = this.device.uuid;
       });
   }
 
   refreshPage() {
     window.location.reload();
-  }
-  startFind(){
-    this.debug = this.contact.name;
   }
 }
