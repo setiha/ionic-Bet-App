@@ -35,7 +35,7 @@ import { Contacts, Contact, ContactField, ContactName } from '@ionic-native/cont
     provide: RouteReuseStrategy,
     useClass: IonicRouteStrategy
   }, TranslateService, ClubService,
-    MatchService, TranslatePipe, StorageService, BetService,Contact,Contacts],
+    MatchService, TranslatePipe, StorageService, BetService,Contact],
   bootstrap: [AppComponent],
   exports: []
 })

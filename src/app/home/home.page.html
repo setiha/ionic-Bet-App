@@ -18,9 +18,11 @@
  <ion-button  expand="full" color="danger" (click)="resetStorage()">{{"RESET" | translate }}</ion-button>
   <hr>
   <ion-item>
-    <ion-label>Nev</ion-label>
-    <ion-input [(ngModel)]="phrase" type="text"></ion-input>
-    <ion-button color="danger" (click)="startFind()">Kereses</ion-button>
-    <div>{{debug | json}}</div>
+    <ion-label>Device</ion-label>
+   <ion-text>{{debug | json}}</ion-text>
+  </ion-item>
+  <ion-item>
+    <ion-label>Contact</ion-label>
+    <ion-text>{{name| json}}</ion-text>
   </ion-item>
 </ion-content>
