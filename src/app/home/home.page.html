@@ -14,11 +14,11 @@
     <ion-label>{{"AMOUNT" | translate}}</ion-label>
     <ion-input [(ngModel)]="amount" type="number"></ion-input>
   </ion-item>
-  <ion-button  expand="full" color="primary" (click)="refreshPage()">{{"UPDATE" | translate }}</ion-button>
+  <ion-button  expand="full" color="primary" (click)="showAmountPrompt()">{{"UPDATE" | translate }}</ion-button>
  <ion-button  expand="full" color="danger" (click)="resetStorage()">{{"RESET" | translate }}</ion-button>
   <hr>
-  <ion-item>
+  <!--<ion-item>
     <ion-label>Device</ion-label>
-   <ion-text>{{debug | json}}</ion-text>
-  </ion-item>
+    <ion-text>{{debug | json}}</ion-text>
+  </ion-item>-->
 </ion-content>

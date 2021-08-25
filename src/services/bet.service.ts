@@ -9,6 +9,8 @@ import {StorageService} from "./storage.service";
 export class BetService {
   currentBets: Array<Bet>;
   subject: Subject<Bet[]> = new Subject();
+  amountSubject = new Subject();
+  amount;
 
   constructor(public storageService: StorageService) {
   }
@@ -43,12 +45,23 @@ export class BetService {
       this.storageService.getValue('amount').then(
         currentAmount => {
           currentAmount -= amount;
-          this.storageService.setValue('amount', currentAmount).then(
+          this.amountSubject.next(currentAmount);
+          this.amountSubject.subscribe(data => this.amount = data);
+          this.storageService.setValue('amount', this.amount).then(
             () => {
               resolve(true);
             });
         }
       );
     });
+  }
+
+  addNewAmount(amount: number) {
+    this.storageService.getValue('amount').then(
+      currentAmount => {
+        currentAmount = currentAmount + amount;
+        this.storageService.setValue('amount', currentAmount).then(value => value);
+        document.location.reload();
+      });
   }
 }

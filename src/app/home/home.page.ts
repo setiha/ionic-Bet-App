@@ -1,16 +1,19 @@
-import {Component, DoCheck} from '@angular/core';
+import {Component, DoCheck, OnInit} from '@angular/core';
 import {TranslateService} from '../../services/translate.service';
 import {StorageService} from "../../services/storage.service";
 import {AlertController} from "@ionic/angular";
-import {Device} from '@ionic-native/device/ngx';
+import {BetService} from "../../services/bet.service";
+
+
+//import {Device} from '@ionic-native/device/ngx';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  providers:[Device]
+  //providers: [Device]
 })
-export class HomePage implements DoCheck {
+export class HomePage implements OnInit, DoCheck {
   content: string;
   amount = 0;
   storageCheck = false;
@@ -18,8 +21,13 @@ export class HomePage implements DoCheck {
 
   constructor(public storageService: StorageService,
               public alertController: AlertController,
-              private device: Device) {
-    this.debug = this.device.uuid;
+              public betService: BetService
+              //private device: Device
+  ) {
+    //this.debug = this.device.uuid;
+  }
+
+  ngOnInit() {
   }
 
   ngDoCheck() {
@@ -47,7 +55,7 @@ export class HomePage implements DoCheck {
           handler: () => {
             this.storageService.storage.clear().then(value => value);
             this.initPage();
-            window.location.reload();
+            document.location.reload();
           }
         }
       ]
@@ -56,12 +64,41 @@ export class HomePage implements DoCheck {
     await alert.present();
   }
 
+  async showAmountPrompt() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Adja meg a befizetett osszeget',
+      inputs: [
+        {
+          name: 'addAmount',
+          type: 'number',
+          placeholder: 'amount'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Megsem',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Ok',
+          handler: data => {
+            this.betService.addNewAmount(parseInt(data.addAmount));
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
   initPage() {
     this.storageService.getValue('amount').then(
       amount => {
         if (!amount || amount === 0) {
           this.storageService.setValue('amount', 250000).then(val => val);
-          this.amount = 25000;
         }
         this.amount = amount;
       });
