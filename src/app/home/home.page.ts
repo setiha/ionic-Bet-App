@@ -21,10 +21,9 @@ export class HomePage implements OnInit, DoCheck {
 
   constructor(public storageService: StorageService,
               public alertController: AlertController,
-              public betService: BetService
-              //private device: Device
+              public betService: BetService,
+              public translate: TranslateService
   ) {
-    //this.debug = this.device.uuid;
   }
 
   ngOnInit() {
@@ -67,12 +66,12 @@ export class HomePage implements OnInit, DoCheck {
   async showAmountPrompt() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: 'Adja meg a befizetett osszeget',
+      header: this.translate.getOne('TOP_UP_MESSAGE'),
       inputs: [
         {
           name: 'addAmount',
           type: 'number',
-          placeholder: 'amount'
+          placeholder: this.translate.getOne('AMOUNT')
         },
       ],
       buttons: [

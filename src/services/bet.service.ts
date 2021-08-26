@@ -45,10 +45,9 @@ export class BetService {
       this.storageService.getValue('amount').then(
         currentAmount => {
           currentAmount -= amount;
-          this.amountSubject.next(currentAmount);
-          this.amountSubject.subscribe(data => this.amount = data);
-          this.storageService.setValue('amount', this.amount).then(
+          this.storageService.setValue('amount', currentAmount).then(
             () => {
+              document.location.reload();
               resolve(true);
             });
         }

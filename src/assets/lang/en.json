@@ -11,5 +11,10 @@
   "AMOUNT": "Amount",
   "SEND_BETTING": "Send betting",
   "RESET": "Reset",
-  "UPDATE": "Update"
+  "UPDATE": "Update",
+  "UPLOAD": "Upload",
+  "TOP_UP_MESSAGE": "Payed amount",
+  "CANCEL": "Cancel",
+  "AMOUNT_TOO_LARGE": "Amount too large",
+  "ERROR": "Error"
 }

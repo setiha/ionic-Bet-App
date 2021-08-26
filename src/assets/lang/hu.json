@@ -11,5 +11,11 @@
   "AMOUNT": "Osszeg",
   "SEND_BETTING": "Tet bekuldese",
   "RESET": "Visszaallitas",
-  "UPDATE": "Frissites"
+  "UPDATE": "Frissites",
+  "UPLOAD": "Feltoltes",
+  "TOP_UP_MESSAGE": "Adja meg a befizetett osszeget",
+  "CANCEL": "Megsem",
+  "AMOUNT_TOO_LARGE": "Keves a kereted",
+  "ERROR": "Hiba"
+
 }

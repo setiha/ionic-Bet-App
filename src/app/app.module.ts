@@ -19,13 +19,13 @@ import {FormsModule} from "@angular/forms";
 import {IonicStorageModule} from '@ionic/storage-angular';
 import {StorageService} from "../services/storage.service";
 import {BetService} from "../services/bet.service";
-import { Contacts, Contact, ContactField, ContactName } from '@ionic-native/contacts/ngx';
+import { Contact } from '@ionic-native/contacts/ngx';
 
 
 
 
 @NgModule({
-  declarations: [AppComponent, BetModalComponent, BetModalFormComponent,],
+  declarations: [AppComponent, BetModalComponent, BetModalFormComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(),
     AppRoutingModule, HttpClientModule,

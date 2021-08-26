@@ -30,8 +30,7 @@ export class TranslateService {
       ).then(value => value);
     });
   };
-
-  getText(key){
-
+  getOne(key): string{
+    return this.translate[key] || 'n/a';
   }
 }
