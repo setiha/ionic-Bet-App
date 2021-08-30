@@ -54,7 +54,6 @@ export class BetModalFormComponent implements OnInit, DoCheck {
     this.betService.addBet(bet, this.amount);
     this.vibration.vibrate(700);
     this.dismiss();
-
   }
 
   actionAppears() {

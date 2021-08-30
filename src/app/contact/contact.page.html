@@ -1,14 +1,14 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      {{"HISTORY" | translate}}
+      {{"HISTORY" | translate}}{{ currentAmount | async }} Ft
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
 <ion-list>
-  <ion-item *ngFor="let bet of bets">
+  <ion-item  color={{getColor(bet)}} *ngFor="let bet of bets">
 {{bet.winnerCode}}: {{bet.amount}}
   </ion-item>
 </ion-list>

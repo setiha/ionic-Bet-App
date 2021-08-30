@@ -30,9 +30,11 @@ export class HomePage implements OnInit, DoCheck {
   }
 
   ngDoCheck() {
+
     if (this.storageService.newStorage && !this.storageCheck) {
       this.initPage();
       this.storageCheck = true;
+
     }
   }
 

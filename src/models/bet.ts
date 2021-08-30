@@ -3,6 +3,8 @@ export class Bet {
   winnerCode: string;
   amount: number;
   time: number;
+  done = false;
+  win = false;
 
   constructor(match, winnerCode, amount) {
     this.match = match;
@@ -16,7 +18,9 @@ export class Bet {
       match: this.match,
       winnerCode: this.winnerCode,
       amount: this.amount,
-      time:this.time
+      time: this.time,
+      done: this.done
+
     };
     return JSON.stringify(json);
   }

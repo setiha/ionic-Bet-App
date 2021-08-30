@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,7 @@ import {HttpClient} from "@angular/common/http";
 export class MatchService {
   endPoint = '../assets/matchDatabase/matches';
   items;
+  sub: Subject<any> = new Subject();
 
   constructor(public http: HttpClient) {
 
@@ -19,7 +21,7 @@ export class MatchService {
           resolve(res);
         }
       ).then(value => value);
-    })
+    });
   }
 
   generateURl() {

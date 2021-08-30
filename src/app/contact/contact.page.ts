@@ -4,6 +4,9 @@ import {ClubService} from "../../services/club.service";
 import {StorageService} from "../../services/storage.service";
 import {Bet} from "../../models/bet";
 import {BetService} from "../../services/bet.service";
+import {HomePage} from "../home/home.page";
+import {Subject} from "rxjs";
+import {element} from "protractor";
 
 @Component({
   selector: 'app-contact',
@@ -14,6 +17,9 @@ import {BetService} from "../../services/bet.service";
 export class ContactPage implements OnInit, DoCheck {
   bets: Array<Bet> = [];
   storageCheck = false;
+  currentAmount: Subject<any> = new Subject<any>();
+  amount = 0;
+  elemRefresh = false;
 
   constructor(public betService: BetService,
               public storageService: StorageService) {
@@ -24,6 +30,12 @@ export class ContactPage implements OnInit, DoCheck {
 
   ngDoCheck() {
     if (this.storageService.newStorage && !this.storageCheck) {
+      if (!this.elemRefresh) {
+        this.storageService.getValue('amount').then(
+          value => this.currentAmount.next(value)
+        );
+        this.elemRefresh = true;
+      }
       this.betService.getBets();
       this.betService.subject.subscribe(
         bets => {
@@ -32,5 +44,12 @@ export class ContactPage implements OnInit, DoCheck {
       );
       this.storageCheck = true;
     }
+  }
+
+  getColor(bet: Bet) {
+    if (!bet.done) {
+      return 'light';
+    }
+    return bet.win ? 'secondary' : 'danger';
   }
 }
